@@ -30,7 +30,7 @@
 	define('OP_RETURN_BITCOIN_USE_CMD', false); // use command-line instead of JSON-RPC?
 	
 	if (OP_RETURN_BITCOIN_USE_CMD) {
-		define('OP_RETURN_BITCOIN_PATH', '/usr/bin/bitcoin-cli'); // path to bitcoin-cli executable on this server
+		define('OP_RETURN_BITCOIN_PATH', '/usr/bin/litecoin-cli'); // path to bitcoin-cli executable on this server
 
 	} else {
 		define('OP_RETURN_BITCOIN_PORT', ''); // leave empty to use default port for mainnet/testnet
@@ -489,7 +489,7 @@
 				!(strlen($port) && strlen($user) && strlen($password))
 			) {
 				$posix_userinfo=posix_getpwuid(posix_getuid());
-				$bitcoin_conf=file_get_contents($posix_userinfo['dir'].'/.bitcoin/bitcoin.conf');
+				$bitcoin_conf=file_get_contents($posix_userinfo['dir'].'/.litecoin/litecoin.conf');
 				$conf_lines=preg_split('/[\n\r]/', $bitcoin_conf);
 
 				foreach ($conf_lines as $conf_line) {
